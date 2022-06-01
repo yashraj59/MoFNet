@@ -15,8 +15,6 @@ from sklearn.metrics import recall_score,precision_score,roc_auc_score,roc_curve
 import matplotlib
 import matplotlib.pyplot as plt
 
-from google.colab import drive
-drive.mount('/content/drive', force_remount=True)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class MoFNetLayer(nn.Module):
