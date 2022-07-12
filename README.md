@@ -7,7 +7,7 @@ Paul Salama[1], Andrew J. Saykin[3], and Jingwen Yan[2][3],∗ <br/>
 ∗ To whom correspondence should be addressed.<br/>
 † Contributed equally.
 
-This repository is forked from Varmole. {https://github.com/namtk/Varmole}
+This repository was initially forked from Varmole. {https://github.com/namtk/Varmole}
 
 ## Abstract
 
