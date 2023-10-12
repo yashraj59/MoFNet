@@ -21,7 +21,7 @@ class MoFNetLayer(nn.Module):
     def __init__(self, in_dims, out_dims, bias=True):
         super(MoFNetLayer, self).__init__()
         self.in_dims = in_dims
-        self.in_dims = out_dims
+        self.out_dims = out_dims
         self.weight = nn.Parameter(torch.Tensor(out_dims, in_dims))
         self.reset_parameters()
         
