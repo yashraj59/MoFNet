@@ -1,31 +1,41 @@
-# Deep multi-omic network fusion for marker discovery of Alzheimer’s Disease
-Linhui Xie[1],†, Yash Raj[2],†, Pradeep Varathan[2], Bing He[2], Kwangsik Nho[3],
-Paul Salama[1], Andrew J. Saykin[3], and Jingwen Yan[2][3],∗ <br/>
-[1] Department of Electrical and Computer Engineering, Indiana University Purdue University Indianapolis, Indianapolis, IN 46204, USA, <br/>
-[2] Department of BioHealth Informatics, Indiana University Purdue University Indianapolis, Indianapolis, IN 46204, USA,<br/>
-[3] Department of Radiology and Imaging Sciences, Indiana University School of Medicine, Indianapolis, IN 46204, USA <br/>
-∗ To whom correspondence should be addressed.<br/>
-† Contributed equally.
+# MoFNet: Deep multi-omic network fusion for marker discovery of Alzheimer’s Disease
 
-This repository was initially forked from Varmole. {https://github.com/namtk/Varmole}
+MoFNet v1.0
+Yan's Lab, Indiana University Purdue University Indianapolis
+Developed by Yash Raj and Linhui Xie
 
-## Abstract
+## Description
+MoFNet is an interpretable multi-omic graph neural network approach for integratively identifying network-level biomarkers of target diseases. This repository was initially forked from Varmole(https://github.com/namtk/Varmole). Instead of having single transparent layer to integrate quantitative trait loci (QTLs) and gene regulatory networks (GRNs) into prior biological knowledge, this MoFNet has further extended the network structure to two transparent layers to integrate the multi-omic(eg. genomics, transcriptomics and preteomics) dataset into deep neural network. More transparent layers are expected if more layers of multi-omic features are available. The preprint is posted on bioarxiv: https://www.biorxiv.org/content/10.1101/2022.05.02.490336v1.
 
-Multi-omic data spanning from genotype, gene expression to protein expression have been
-increasingly explored, with attempt to better interpret genetic findings from genome wide association
-studies and to gain more insight of the disease mechanism. However, gene expression and protein
-expression are part of dynamic process changing in various ways as a cell ages. Expression data captured
-by existing technology is often noisy and only capture a screenshot of the dynamic process. Performance
-of models built on top of these expression data is undoubtedly compromised. To address this problem, we
-propose a new interpretable deep multi-omic network fusion model (MoFNet) for predictive modeling of
-Alzheimer’s disease. In particular, the information flow from DNA to protein is leveraged as a prior multi-
-omic network to enhance the signal in gene and protein expression data so as to achieve better prediction
-power. The proposed model MoFNet significantly outperformed all other state-of-art classifiers when
-evaluated using genotype, gene expression and protein expression data from the ROS/MAP cohort.
-Instead of individual markers, MoFNet yielded 3 major multi-omic subnetworks related to innate immune
-system, clearance of unwanted cells or misfolded proteins, and neurotransmitter release respectively.
 
-                 
+## Installation
+The following libraries are required,
+Python >= 3.6
+pandas >= 1.2
+numpy >= 1.20 
+PyTorch >= 0.5
+captum >= 0.3.0
+
+
+## Usage
+To have the multi-omic matrix data ready in a .csv format. Each row contain the multi-omic data for single participant. The column number is equal to the entire number of multi-omic features. For adjacency matrix, the row and column numbers are identical to the entire number of multi-omic features, and it should be in a .csv format as well. All input files are supposed to put under the same folder. Then, ran the code in terminal, in the format shown below,
+$ python mofnet_main.py /the_path_to_your_dataset/
+
+There is another short pipeline provided in mofnet_example.ipynb to run MoFNet interactively.
+
+## Contents
+You can request access the real dataset through AD knowledge portal(https://adknowledgeportal.synapse.org) with synapse #.
+For the detailed information under this repository, the root folder contains following scripts,
+mofnet_main.py contains the main structure.
+model.py contains all input information to the pipeline .
+train.py contains the training part of this method.
+utils.py contains all utility functions that will be applied in the approach.
+
+
+## Information
+ * LR: learning rate to this structure.
+ * L1REG: L1 norm regularization penalty.
+
 
 ## License
 MIT License
